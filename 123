@@ -1,0 +1,445 @@
+tudent@devops:~$ ssh-keygen -t ed25519 -C "daria.shchuplova@mail.ru"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/student/.ssh/id_ed25519): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/student/.ssh/id_ed25519
+Your public key has been saved in /home/student/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:g8WjAjIjNw4oG/2OFIw41KDhR7jxD1yweun+s7y+070 daria.shchuplova@mail.ru
+The key's randomart image is:
++--[ED25519 256]--+
+|.o+o.            |
+|*B.... .         |
+|#.%o.   +        |
+|o%oO.  + .       |
+|..oo= o S        |
+| .oo o   .       |
+|  ... . .        |
+|  . .o . .       |
+|   .oB*  E.      |
++----[SHA256]-----+
+student@devops:~$ eval "$(ssh-agent -s)"
+Agent pid 3909
+student@devops:~$ ssh-add ~/.ssh/id_ed25519
+Enter passphrase for /home/student/.ssh/id_ed25519: 
+Identity added: /home/student/.ssh/id_ed25519 (daria.shchuplova@mail.ru)
+student@devops:~$ cat ~/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFauEJwEHLBB8eAlcZAiklAMvZ0u5S9S32OqECZ9xPPg daria.shchuplova@mail.ru
+student@devops:~$ git remote add origin ^[[200~git@github.com:DariaShchuplova/First.git~
+fatal: не найден git репозиторий (или один из родительских каталогов): .git
+student@devops:~$ git remote add origin git@github.com:DariaShchuplova/First.git
+fatal: не найден git репозиторий (или один из родительских каталогов): .git
+student@devops:~$ cd Prakt/
+student@devops:~/Prakt$ ls -al
+итого 68
+drwxrwxr-x  3 student student  4096 апр  9 13:30 .
+drwxrwxrwx 26 student student  4096 апр  9 10:33 ..
+-rwxrwxr-x  1 student student 16048 апр  9 13:27 a.out
+-rw-rw-r--  1 student student   549 апр  9 13:27 cmdargs.c
+-rwxrwxr-x  1 student student 16048 апр  9 13:30 cmdargs.out
+-rw-rw-r--  1 student student  1469 апр  9 11:39 fork1.c
+-rwxrwxr-x  1 student student 16176 апр  9 11:39 fork1.out
+drwxrwxr-x  8 student student  4096 апр  9 12:37 .git
+student@devops:~/Prakt$ git remote add origin git@github.com:DariaShchuplova/First.git
+student@devops:~/Prakt$ git branch -M main
+student@devops:~/Prakt$ cd ~
+student@devops:~$ cp ./Prakt/*.* ./Prakt_SHCH/
+student@devops:~$ cd P
+Pictures/   Prakt/      Prakt_SHCH/ 
+student@devops:~$ cd Prakt_SHCH/
+student@devops:~/Prakt_SHCH$ ls
+a.out  cmdargs.c  cmdargs.out  fork1.c  fork1.out  otchet_16_04_2024.txt
+student@devops:~/Prakt_SHCH$ git init
+подсказка: Using 'master' as the name for the initial branch. This default branch name
+подсказка: is subject to change. To configure the initial branch name to use in all
+подсказка: of your new repositories, which will suppress this warning, call:
+подсказка: 
+подсказка: 	git config --global init.defaultBranch <name>
+подсказка: 
+подсказка: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+подсказка: 'development'. The just-created branch can be renamed via this command:
+подсказка: 
+подсказка: 	git branch -m <name>
+Инициализирован пустой репозиторий Git в /home/student/Prakt_SHCH/.git/
+student@devops:~/Prakt_SHCH$ git add *.c
+student@devops:~/Prakt_SHCH$ git log
+fatal: ваша текущая ветка «master» еще не содержит ни одного коммита
+student@devops:~/Prakt_SHCH$ nano fork1.c
+student@devops:~/Prakt_SHCH$ git log
+fatal: ваша текущая ветка «master» еще не содержит ни одного коммита
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+
+Еще нет коммитов
+
+Изменения, которые будут включены в коммит:
+  (используйте «git rm --cached <файл>...», чтобы убрать из индекса)
+	новый файл:    cmdargs.c
+	новый файл:    fork1.c
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+	изменено:      fork1.c
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	a.out
+	cmdargs.out
+	fork1.out
+	otchet_16_04_2024.txt
+
+student@devops:~/Prakt_SHCH$ get status
+Команда «get» не найдена, но есть 18 похожих.
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+
+Еще нет коммитов
+
+Изменения, которые будут включены в коммит:
+  (используйте «git rm --cached <файл>...», чтобы убрать из индекса)
+	новый файл:    cmdargs.c
+	новый файл:    fork1.c
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+	изменено:      fork1.c
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	a.out
+	cmdargs.out
+	fork1.out
+	otchet_16_04_2024.txt
+
+student@devops:~/Prakt_SHCH$ touch context1.c
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+
+Еще нет коммитов
+
+Изменения, которые будут включены в коммит:
+  (используйте «git rm --cached <файл>...», чтобы убрать из индекса)
+	новый файл:    cmdargs.c
+	новый файл:    fork1.c
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+	изменено:      fork1.c
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	a.out
+	cmdargs.out
+	context1.c
+	fork1.out
+	otchet_16_04_2024.txt
+
+student@devops:~/Prakt_SHCH$ 
+student@devops:~/Prakt_SHCH$ nano context1.c
+student@devops:~/Prakt_SHCH$ gcc context1.c
+context1.c: In function ‘main’:
+context1.c:8:9: warning: missing sentinel in function call [-Wformat=]
+    8 |         result = execle("/bin/cat", "/bin/cat", "otchet_16_04_2024.txt", 0, envp);
+      |         ^~~~~~
+student@devops:~/Prakt_SHCH$ gcc context1.c -o context1.out
+context1.c: In function ‘main’:
+context1.c:8:9: warning: missing sentinel in function call [-Wformat=]
+    8 |         result = execle("/bin/cat", "/bin/cat", "otchet_16_04_2024.txt", 0, envp);
+      |         ^~~~~~
+student@devops:~/Prakt_SHCH$ ls
+a.out      cmdargs.out  context1.out  fork1.out
+cmdargs.c  context1.c   fork1.c       otchet_16_04_2024.txt
+student@devops:~/Prakt_SHCH$ ./context1.out
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+//Переходим в папку с рабочей копией проекта (туда, где есть подкаталог .git)
+git remote add origin git@github.com:DariaShchuplova/First.git
+git branch -M main
+//Обновление удаленного репрозитория (после внесения всех правок в локальный репрозиторий)
+git push -u origin main
+student@devops:~/Prakt_SHCH$ git commit -m "Создали компилируемый исходный код" context1.c
+error: pathspec 'context1.c' did not match any file(s) known to git
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+
+Еще нет коммитов
+
+Изменения, которые будут включены в коммит:
+  (используйте «git rm --cached <файл>...», чтобы убрать из индекса)
+	новый файл:    cmdargs.c
+	новый файл:    fork1.c
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+	изменено:      fork1.c
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	a.out
+	cmdargs.out
+	context1.c
+	context1.out
+	fork1.out
+	otchet_16_04_2024.txt
+
+student@devops:~/Prakt_SHCH$ git add context1.c
+student@devops:~/Prakt_SHCH$ git commit -m "Создали компилируемый исходный код" context1.c
+Author identity unknown
+
+*** Пожалуйста, скажите мне кто вы есть.
+
+Запустите
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Ваше Имя"
+
+для указания идентификационных данных аккаунта по умолчанию.
+Пропустите параметр --global для указания данных только для этого репозитория.
+
+fatal: не удалось выполнить автоопределение адреса электронной почты (получено «student@devops.(none)»)
+student@devops:~/Prakt_SHCH$ git config user.email "daria.shchuplova@mail.ru"
+student@devops:~/Prakt_SHCH$ git config user.name Daria
+student@devops:~/Prakt_SHCH$ git commit -m "Создали компилируемый исходный код" context1.c
+[master (корневой коммит) 71aae81] Создали компилируемый исходный код
+ 1 file changed, 13 insertions(+)
+ create mode 100644 context1.c
+student@devops:~/Prakt_SHCH$ gcc context1.c -o context1.out
+context1.c: In function ‘main’:
+context1.c:10:9: warning: missing sentinel in function call [-Wformat=]
+   10 |         result = execle("/bin/cat", "/bin/cat", "otchet_16_04_2024.txt", 0, envp);
+      |         ^~~~~~
+student@devops:~/Prakt_SHCH$ ./context1.out
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+//Переходим в папку с рабочей копией проекта (туда, где есть подкаталог .git)
+git remote add origin git@github.com:DariaShchuplova/First.git
+git branch -M main
+//Обновление удаленного репрозитория (после внесения всех правок в локальный репрозиторий)
+git push -u origin main
+student@devops:~/Prakt_SHCH$ git commit -m "Добавили комметарии в исходный код" context1.c[master 6069214] Добавили комметарии в исходный код
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+student@devops:~/Prakt_SHCH$ git log
+commit 606921408fab51b6099195f7cc8d38a700b3812f (HEAD -> master)
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:51:24 2024 +0700
+
+    Добавили комметарии в исходный код
+
+commit 71aae81c320459adf4133670b52dd8a2a4e8aea6
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:45:56 2024 +0700
+
+    Создали компилируемый исходный код
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+Изменения, которые будут включены в коммит:
+  (используйте «git restore --staged <файл>...», чтобы убрать из индекса)
+	новый файл:    cmdargs.c
+	новый файл:    fork1.c
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>...», чтобы добавить файл в индекс)
+  (используйте «git restore <файл>...», чтобы отменить изменения в рабочем каталоге)
+	изменено:      fork1.c
+
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	.context1.c.swp
+	a.out
+	cmdargs.out
+	context1.out
+	fork1.out
+	otchet_16_04_2024.txt
+
+student@devops:~/Prakt_SHCH$ ls
+a.out      cmdargs.out  context1.out  fork1.out
+cmdargs.c  context1.c   fork1.c       otchet_16_04_2024.txt
+student@devops:~/Prakt_SHCH$ cat fork1.c
+// программа для иллюстации одинаковой работы процесса--родителя и процессса-ребенка
+
+//подключение библиотек:
+#include <sys/types.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+//Главная функция программы 
+int main() {
+	//Объявление переменных 
+	pid_t procid, parentid;//Индификаторы процессов
+	pid_t result;//результат системного вызова fork()
+	int a=0;//переменная для провверки работы процесса-родителя и процесса-ребенка
+	result = fork();
+	if (result<0){
+		printf("Ошибка при выполнении fork()\n");
+		exit(-1);
+	}
+	else if (result == 0){
+	
+
+		a = a+1;
+		procid = getpid();//получение инд тек процесса
+		parentid = getppid();// получение ид род процесса 
+		printf("ид. процесса: %d, ид. родителя: %d, значение переменной a: %d\n,", procid, parentid,a);
+	}
+
+	else {
+		a = a + 555;
+		procid = getpid();//получение инд тек процесса
+                parentid = getppid();// получение ид род процесса 
+                printf("ид. процесса: %d, ид. родителя: %d, значение переменной a: %d\n,", procid, parentid,a);
+	}
+	return  0;
+}
+
+student@devops:~/Prakt_SHCH$ nano context1.c
+student@devops:~/Prakt_SHCH$ gcc context1.c -o context1.out
+context1.c: In function ‘main’:
+context1.c:11:15: error: redeclaration of ‘result’ with no linkage
+   11 |         pid_t result;//результат системного вызова fork()
+      |               ^~~~~~
+context1.c:9:13: note: previous declaration of ‘result’ with type ‘int’
+    9 |         int result;
+      |             ^~~~~~
+context1.c:24:17: error: ‘result1’ undeclared (first use in this function); did you mean ‘result’?
+   24 |                 result1 = execle("/bin/cat", "/bin/cat", "otchet_16_04_2024.txt", 0, envp);
+      |                 ^~~~~~~
+      |                 result
+context1.c:24:17: note: each undeclared identifier is reported only once for each function it appears in
+context1.c:24:17: warning: missing sentinel in function call [-Wformat=]
+student@devops:~/Prakt_SHCH$ ./context1.out
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+//Переходим в папку с рабочей копией проекта (туда, где есть подкаталог .git)
+git remote add origin git@github.com:DariaShchuplova/First.git
+git branch -M main
+//Обновление удаленного репрозитория (после внесения всех правок в локальный репрозиторий)
+git push -u origin main
+student@devops:~/Prakt_SHCH$ nano context1.c
+student@devops:~/Prakt_SHCH$ gcc context1.c -o context1.out
+context1.c: In function ‘main’:
+context1.c:24:17: warning: missing sentinel in function call [-Wformat=]
+   24 |                 result1 = execle("/bin/cat", "/bin/cat", "otchet_16_04_2024.txt", 0, envp);
+      |                 ^~~~~~~
+student@devops:~/Prakt_SHCH$ ./context1.out
+ид. процесса: 6202, ид. родителя: 3841, значение переменной a: 555
+,student@devops:~/Prakt_SHCH$ ид. процесса: 6203, ид. родителя: 1311, значение переменной a: 1
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+//Переходим в папку с рабочей копией проекта (туда, где есть подкаталог .git)
+git remote add origin git@github.com:DariaShchuplova/First.git
+git branch -M main
+//Обновление удаленного репрозитория (после внесения всех правок в локальный репрозиторий)
+git push -u origin main
+
+student@devops:~/Prakt_SHCH$ git commit -m "Добавлено изменение контекста для добавления дочернего процесса"
+[master 1111fdd] Добавлено изменение контекста для добавления дочернего процесса
+ 2 files changed, 66 insertions(+)
+ create mode 100644 cmdargs.c
+ create mode 100644 fork1.c
+student@devops:~/Prakt_SHCH$ git commit -a -m "Добавлено изменение контекста для добавления дочернего процесса"
+[master c12f531] Добавлено изменение контекста для добавления дочернего процесса
+ 2 files changed, 28 insertions(+), 8 deletions(-)
+student@devops:~/Prakt_SHCH$ git status
+Текущая ветка: master
+Неотслеживаемые файлы:
+  (используйте «git add <файл>...», чтобы добавить в то, что будет включено в коммит)
+	a.out
+	cmdargs.out
+	context1.out
+	fork1.out
+	otchet_16_04_2024.txt
+
+индекс пуст, но есть неотслеживаемые файлы
+(используйте «git add», чтобы проиндексировать их)
+student@devops:~/Prakt_SHCH$ 
+student@devops:~/Prakt_SHCH$ git log
+commit c12f5315a95d0c4fb050fcd54a17541fc013b197 (HEAD -> master)
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 13:20:06 2024 +0700
+
+    Добавлено изменение контекста для добавления дочернего процесса
+
+commit 1111fdd37d24d05ead691fa1adff6263fc23d198
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 13:19:23 2024 +0700
+
+    Добавлено изменение контекста для добавления дочернего процесса
+
+commit 606921408fab51b6099195f7cc8d38a700b3812f
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:51:24 2024 +0700
+
+    Добавили комметарии в исходный код
+
+commit 71aae81c320459adf4133670b52dd8a2a4e8aea6
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:45:56 2024 +0700
+
+    Создали компилируемый исходный код
+student@devops:~/Prakt_SHCH$ touch connect1.c
+student@devops:~/Prakt_SHCH$ git add connect1.c
+student@devops:~/Prakt_SHCH$ nano connect1.c
+student@devops:~/Prakt_SHCH$ nano connect1.c
+student@devops:~/Prakt_SHCH$ gcc connect1.c -o connect1.out
+connect1.c: In function ‘main’:
+connect1.c:10:18: warning: implicit declaration of function ‘open’; did you mean ‘popen’? [-Wimplicit-function-declaration]
+   10 |         if((fd = open("file1.txt", O_WRONLY|O_CREAT, 0666))<0) {
+      |                  ^~~~
+      |                  popen
+connect1.c:10:36: error: ‘O_WRONLY’ undeclared (first use in this function)
+   10 |         if((fd = open("file1.txt", O_WRONLY|O_CREAT, 0666))<0) {
+      |                                    ^~~~~~~~
+connect1.c:10:36: note: each undeclared identifier is reported only once for each function it appears in
+connect1.c:10:45: error: ‘O_CREAT’ undeclared (first use in this function)
+   10 |         if((fd = open("file1.txt", O_WRONLY|O_CREAT, 0666))<0) {
+      |                                             ^~~~~~~
+student@devops:~/Prakt_SHCH$ nano connect1.c
+student@devops:~/Prakt_SHCH$ gcc connect1.c -o connect1.out
+student@devops:~/Prakt_SHCH$ ./connect1.out 
+student@devops:~/Prakt_SHCH$ ls
+a.out      cmdargs.out  connect1.out  context1.out  fork1.c    otchet_16_04_2024.txt
+cmdargs.c  connect1.c   context1.c    file1.txt     fork1.out
+student@devops:~/Prakt_SHCH$ git commit -a -m "Создали исходный код для открытия на запись файла file1.txt"
+[master a647aa9] Создали исходный код для открытия на запись файла file1.txt
+ 1 file changed, 25 insertions(+)
+ create mode 100644 connect1.c
+student@devops:~/Prakt_SHCH$ git log
+commit a647aa9ba2b9527ef7a6d71497223f3e087b22a0 (HEAD -> master)
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 13:41:25 2024 +0700
+
+    Создали исходный код для открытия на запись файла file1.txt
+
+commit c12f5315a95d0c4fb050fcd54a17541fc013b197
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 13:20:06 2024 +0700
+
+    Добавлено изменение контекста для добавления дочернего процесса
+
+commit 1111fdd37d24d05ead691fa1adff6263fc23d198
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 13:19:23 2024 +0700
+
+    Добавлено изменение контекста для добавления дочернего процесса
+
+commit 606921408fab51b6099195f7cc8d38a700b3812f
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:51:24 2024 +0700
+
+    Добавили комметарии в исходный код
+
+commit 71aae81c320459adf4133670b52dd8a2a4e8aea6
+Author: Daria <daria.shchuplova@mail.ru>
+Date:   Tue Apr 16 12:45:56 2024 +0700
+
+    Создали компилируемый исходный код
+student@devops:~/Prakt_SHCH$ git push -u origin main
+error: src refspec main ничему не соответствует
+error: не удалось отправить некоторые ссылки в «origin»
+student@devops:~/Prakt_SHCH$ 
+
